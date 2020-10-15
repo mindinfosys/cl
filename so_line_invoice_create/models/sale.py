@@ -15,12 +15,13 @@ class SaleOrder(models.Model):
     custom_source_id = fields.Many2one(
         'custom.source.location',
         'Source',
+        readonly=True,
     )
     
     @api.onchange('custom_source_id')
     def _onchange_custom_source_id(self):
+        self.analytic_account_id = self.custom_source_id.analytic_account_id.id
         self.custom_source_location_id = self.custom_source_id.stock_location_id.id
-
 
 class SaleOrderLine(models.Model):
     _inherit = "sale.order.line"

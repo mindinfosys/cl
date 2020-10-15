@@ -11,8 +11,8 @@
                 <field name="client_order_ref"/>
                 <field name="custom_source_id" attrs="{'readonly': [('state', 'not in', ['draft', 'sent'])]}"/>
             </xpath>
-            <xpath expr="//field[@name='payment_term_id']" position="after">
-                <field name="custom_source_location_id" attrs="{'readonly': [('state', 'not in', ['draft', 'sent'])]}"/>
+            <xpath expr="//field[@name='payment_term_id']" position="after" >
+                <field name="custom_source_location_id"/>
             </xpath>
         </field>
     </record>

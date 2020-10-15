@@ -5,7 +5,6 @@ from odoo import models, fields
 
 class SourceLocation(models.Model):
     _name = 'custom.source.location'
-    _description = 'Custom Source Location'
 
     name = fields.Char(
         string='Name',
@@ -15,4 +14,9 @@ class SourceLocation(models.Model):
         'stock.location',
         'Source Location',
         required=True,
+    )
+
+    analytic_account_id = fields.Many2one(
+        'account.analytic.account',
+        'Analytic Account',
     )
